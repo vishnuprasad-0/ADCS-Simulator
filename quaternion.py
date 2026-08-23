@@ -1,7 +1,7 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
-def quat_mul(q1, q2):
+# Quaternion multiplication
+def q_mul(q1, q2):
     w1, x1, y1, z1 = q1
     w2, x2, y2, z2 = q2
 
@@ -12,6 +12,7 @@ def quat_mul(q1, q2):
         w1*z2 + x1*y2 - y1*x2 + z1*w2
     ])
 
-def q_dot(q, omega):
-    omega_q = np.insert(omega, 0, 0)
-    return 0.5 * quat_mul(q, omega_q)
+# Quaternion conjugation
+def q_conj(q):
+    w, x, y, z = q
+    return np.array([w, -x, -y, -z])
